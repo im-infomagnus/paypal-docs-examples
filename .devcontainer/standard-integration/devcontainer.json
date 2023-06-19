@@ -5,7 +5,7 @@
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/standard-integration",
 
   // Use 'onCreateCommand' to run commands when creating the container.
-  "onCreateCommand": "../lessons/standard-integration/welcome-message.sh",
+  "onCreateCommand": "./lessons/standard-integration/welcome-message.sh",
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "npm install",
