@@ -1,29 +1,20 @@
-// For more details, see https://aka.ms/devcontainer.json.
 {
   "name": "Advanced Integration",
+  "workspaceFolder": "/workspaces/paypal-docs-examples/lessons/advanced-integration/",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/advanced-integration",
-
-  // Use 'onCreateCommand' to run commands when creating the container.
-  "onCreateCommand": "./lessons/advanced-integration/welcome-message.sh",
-
-  // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "npm install",
-
-  // Use 'postAttachCommand' to run commands when attaching to the container.
   "postAttachCommand": {
-    "Start server": "npm start"
+    "Start server": "npx kill-port 8888 && npm start"
   },
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [8888],
+  "forwardPorts": [
+    8888
+  ],
   "portsAttributes": {
     "8888": {
       "label": "Preview of Advanced Checkout Flow",
-      "onAutoForward": "openBrowserOnce"
+      "onAutoForward": "openPreview"
     }
   },
-
   "secrets": {
     "CLIENT_ID": {
       "description": "Sandbox client ID of the application.",
@@ -34,10 +25,11 @@
       "documentationUrl": "https://developer.paypal.com/api/rest/"
     }
   },
-
   "customizations": {
     "vscode": {
-      "extensions": ["vsls-contrib.codetour"],
+      "extensions": [
+        "vsls-contrib.codetour"
+      ],
       "settings": {
         "git.openRepositoryInParentFolders": "always"
       }
